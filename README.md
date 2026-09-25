@@ -24,18 +24,34 @@ Server/   Express API, models, routes, and controllers
 
 ## Run Locally
 
-Install dependencies in both applications:
+1. Install Node.js 18 or newer and MongoDB, then start MongoDB locally or prepare an Atlas connection.
+2. Open a terminal in `Server/` and install dependencies:
 
-```bash
-cd Server
-npm install
-npm start
-```
+   ```bash
+   cd Server
+   npm install
+   ```
 
-```bash
-cd Client
-npm install
-npm start
-```
+3. Create `Server/.env`. Port `3001` matches the URL currently configured in `Client/src/Api/index.js`:
 
-Configure the MongoDB connection and other local values in the server environment before starting the API.
+   ```dotenv
+   NODE_ENV=development
+   PORT=3001
+   DATABASE=mongodb://127.0.0.1:27017/gestion_stock
+   ```
+
+4. Start the API:
+
+   ```bash
+   npm start
+   ```
+
+5. Open another terminal and prepare the React application:
+
+   ```bash
+   cd Client
+   npm install
+   npm start
+   ```
+
+6. Open `http://localhost:3000`. If the backend address changes, update `Client/src/Api/index.js` before starting the client.
